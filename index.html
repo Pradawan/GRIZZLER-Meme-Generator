@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meme Generator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="left-section">
+            <div class="options">
+                <div class="category">
+                    <h3>Background</h3>
+                    <div id="background-options"></div>
+                </div>
+                <div class="category">
+                    <h3>Hat</h3>
+                    <div id="hat-options"></div>
+                </div>
+                <div class="category">
+                    <h3>Eyes</h3>
+                    <div id="eyes-options"></div>
+                </div>
+                <div class="category">
+                    <h3>Neck</h3>
+                    <div id="neck-options"></div>
+                </div>
+                <div class="category">
+                    <h3>Upper Body</h3>
+                    <div id="upper-body-options"></div>
+                </div>
+                <div class="category">
+                    <h3>Traits</h3>
+                    <div id="traits-options"></div>
+                </div>
+                <div class="category">
+                    <h3>Lower Body</h3>
+                    <div id="lower-body-options"></div>
+                </div>
+                <div class="category">
+                    <h3>Shoes</h3>
+                    <div id="shoes-options"></div>
+                </div>
+            </div>
+        </div>
+        <div class="right-section">
+            <h1>Preview</h1>
+            <div class="preview-container">
+                <canvas id="preview-canvas" width="1000" height="1000"></canvas>
+                <button id="download-btn">Download Meme</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
