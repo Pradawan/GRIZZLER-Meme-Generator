@@ -79,5 +79,13 @@ document.addEventListener("DOMContentLoaded", () => {
         link.click();
     };
 
+    const resetCanvas = () => {
+        categories.forEach(category => {
+            category.image = null;
+        });
+        drawCanvas();
+    };
+
     document.getElementById("download-btn").addEventListener("click", downloadMeme);
+    document.getElementById("reset-btn").addEventListener("click", resetCanvas);
 });
