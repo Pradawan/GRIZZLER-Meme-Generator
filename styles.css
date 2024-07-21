@@ -74,7 +74,7 @@ body {
     display: flex;
     width: 90%;
     max-width: 1200px;
-    background: #99E2D9;
+
     overflow: hidden;
     margin-top: 20px; /* Add some spacing between header and container */
     margin-bottom: 20px;
@@ -129,11 +129,12 @@ body {
     height: auto;
     cursor: pointer;
     border-radius: 5px;
-    border: 3px solid #AF6D4B;
+    border: 4px solid #AF6D4B;
+    transition: background-color 0.3s ease; /* Add transition effect */
 }
 
 .category img:hover {
-    border: 2px solid #000;
+    background-color: #70a49e;
 }
 
 .preview-container {
@@ -145,44 +146,56 @@ body {
 
 .preview-container canvas {
     background-color: #99E2D9;
-    width: 500px;
-    height: 500px;
+    width: 95%;
+
     border-radius: 5px;
-    border: 3px solid #AF6D4B;  
+    border: 4px solid #AF6D4B;  
     border-radius: 10px;
     margin-bottom: 20px;
 
 }
 
-#download-btn {
+#download-btn, #reset-btn {
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
     background-color: #99E2D9;
     color: black;
+    border: 4px solid #AF6D4B; 
     border-radius: 5px;
-    border: 3px solid #AF6D4B; 
-    transition: background-color 0.3s;
+    transition: background-color 0.3s ease; /* Add transition effect */
     font-family: 'Gagalin-Regular';
 }
 
-#download-btn:hover {
+#download-btn:hover, #reset-btn:hover {
     background-color: #70a49e;
 }
 
-#reset-btn {
-    margin-top: 10px;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    background-color: #99E2D9;
-    color: black;
-    border-radius: 5px;
-    border: 3px solid #AF6D4B; 
-    transition: background-color 0.3s;
-    font-family: 'Gagalin-Regular';
-}
+/* Media query for responsive layout */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Stack sections vertically */
+    }
+    
+    .right-section {
+        order: 1; /* Move right section to the top */
+        margin-left : 0px;
+        height : 60%;
+        padding: 5px;
+    }
 
-#reset-btn:hover {
-    background-color: #70a49e;
+    .right-section h1 {
+        font-size: 1.5em; /* Reduce font size to half */
+    }
+    
+    .left-section {
+        order: 2; /* Move left section to the bottom */
+        margin-right : 0px;
+        margin-top : 10px;
+    }
+
+    .button-container {
+        flex-direction: row; /* Place buttons next to each other */
+        justify-content: center; /* Center the buttons */
+    }
 }
