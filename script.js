@@ -88,4 +88,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.getElementById("download-btn").addEventListener("click", downloadMeme);
     document.getElementById("reset-btn").addEventListener("click", resetCanvas);
+
+
+    // Create the rain effect
+    const rainContainer = document.querySelector(".rain-container");
+    for (let i = 0; i < 100; i++) {
+        const rainDrop = document.createElement("div");
+        rainDrop.className = "rain";
+        rainDrop.textContent = "RIZZ";
+        rainDrop.style.left = `${Math.random() * 100}vw`;
+        rainDrop.style.animationDelay = `${Math.random() * 2}s`;
+        rainContainer.appendChild(rainDrop);
+    }
+
 });
