@@ -14,7 +14,8 @@ document.addEventListener("DOMContentLoaded", () => {
         { id: 'eyes', name: 'Eyes', options: null, image: null },
         { id: 'hat', name: 'Hat', options: null, image: null },
         { id: 'traits', name: 'Traits', options: null, image: null },
-        { id: 'shoes', name: 'Shoes', options: null, image: null }        
+        { id: 'shoes', name: 'Shoes', options: null, image: null },
+        { id: 'emotes', name: 'Emotes', options: null, image: null },       
     ];
 
     const baseImg = new Image();
@@ -58,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (background) context.drawImage(background, 0, 0, originalWidth, originalHeight);
         context.drawImage(baseImg, 0, 0, originalWidth, originalHeight);
 
-        const drawingOrder = ['shoes', 'lower-body', 'upper-body', 'neck', 'eyes', 'hat', 'traits'];
+        const drawingOrder = ['shoes', 'lower-body', 'upper-body', 'neck', 'eyes', 'hat', 'traits', 'emotes'];
         drawingOrder.forEach(categoryId => {
             const category = categories.find(category => category.id === categoryId);
             if (category && category.image) {
