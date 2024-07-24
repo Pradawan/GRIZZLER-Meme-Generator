@@ -71,6 +71,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 context.drawImage(category.image, x, y, width, height);
             }
         });
+
+        drawText();
     };
 
     const downloadMeme = () => {
@@ -101,5 +103,64 @@ document.addEventListener("DOMContentLoaded", () => {
         rainDrop.style.animationDelay = `${Math.random() * 2}s`;
         rainContainer.appendChild(rainDrop);
     }
+
+    // Calculate font size to fit text within the canvas width
+    const calculateFontSize = (text, maxWidth, maxFontSize) => {
+        let fontSize = maxFontSize;
+        do {
+            context.font = `${fontSize}px 'Gagalin-Regular'`;
+            if (context.measureText(text).width <= maxWidth) {
+                break;
+            }
+            fontSize--;
+        } while (fontSize > 10); // Minimum font size to avoid text becoming too small
+        return fontSize;
+    };
+
+    // Add text to canvas
+    const drawText = () => {
+        const topText = document.getElementById("top-text").value;
+        const bottomText = document.getElementById("bottom-text").value;
+
+        context.lineWidth = 2;
+        context.textAlign = "center";
+
+        const maxWidth = previewCanvas.width - 40; // Padding to ensure text doesn't touch edges
+        const maxFontSize = 120;
+
+        if (topText) {
+            const topFontSize = calculateFontSize(topText, maxWidth, maxFontSize);
+
+            context.fillStyle = "black";
+            context.strokeStyle = "black";
+            context.font = `${topFontSize}px 'Gagalin-Regular'`;
+            context.fillText(topText, previewCanvas.width / 2, topFontSize);
+            context.strokeText(topText, previewCanvas.width / 2, topFontSize); 
+
+            context.fillStyle = "white";
+            context.strokeStyle = "white";
+            context.font = `${topFontSize}px 'Gagalin-Regular'`;
+            context.fillText(topText, (previewCanvas.width / 2)-5, topFontSize)-5;
+            context.strokeText(topText, (previewCanvas.width / 2)-5, topFontSize-5); 
+        }
+
+        if (bottomText) {
+            const bottomFontSize = calculateFontSize(bottomText, maxWidth, maxFontSize);
+
+            context.fillStyle = "black";
+            context.strokeStyle = "black";
+            context.font = `${bottomFontSize}px 'Gagalin-Regular'`;
+            context.fillText(bottomText, previewCanvas.width / 2, previewCanvas.height - bottomFontSize / 2);
+            context.strokeText(bottomText, previewCanvas.width / 2, previewCanvas.height - bottomFontSize / 2);
+
+            context.fillStyle = "white";
+            context.strokeStyle = "white";
+            context.font = `${bottomFontSize}px 'Gagalin-Regular'`;
+            context.fillText(bottomText, (previewCanvas.width / 2)-5, (previewCanvas.height - bottomFontSize / 2)-5);
+            context.strokeText(bottomText, (previewCanvas.width / 2)-5, (previewCanvas.height - bottomFontSize / 2)-5);
+        }
+    };
+
+    document.getElementById("add-text-btn").addEventListener("click", drawCanvas);
 
 });
