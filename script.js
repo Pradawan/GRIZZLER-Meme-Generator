@@ -60,8 +60,10 @@ document.addEventListener("DOMContentLoaded", () => {
         if (background) context.drawImage(background, 0, 0, originalWidth, originalHeight);
 
         const aura = categories.find(category => category.id === 'aura').image;
+        if (aura) context.globalAlpha = 0.66;
         if (aura) context.drawImage(aura, 0, 0, originalWidth, originalHeight);
 
+        context.globalAlpha = 1.0;
         context.drawImage(baseImg, 0, 0, originalWidth, originalHeight);
 
         const drawingOrder = ['shoes', 'lower-body', 'upper-body', 'neck', 'eyes', 'hat', 'traits', 'emotes'];
