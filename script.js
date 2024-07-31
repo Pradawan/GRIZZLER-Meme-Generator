@@ -77,6 +77,13 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
 
+        // Draw the aura again with 33% opacity
+        if (aura) {
+            context.globalAlpha = 0.18;
+            context.drawImage(aura, 0, 0, originalWidth, originalHeight);
+            context.globalAlpha = 1.0; // Reset alpha to default
+        }
+
         drawText();
     };
 
