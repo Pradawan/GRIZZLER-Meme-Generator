@@ -58,9 +58,13 @@ document.addEventListener("DOMContentLoaded", () => {
         context.clearRect(0, 0, previewCanvas.width, previewCanvas.height);
         const background = categories.find(category => category.id === 'background').image;
         if (background) context.drawImage(background, 0, 0, originalWidth, originalHeight);
+
+        const aura = categories.find(category => category.id === 'aura').image;
+        if (aura) context.drawImage(aura, 0, 0, originalWidth, originalHeight);
+
         context.drawImage(baseImg, 0, 0, originalWidth, originalHeight);
 
-        const drawingOrder = ['aura', 'shoes', 'lower-body', 'upper-body', 'neck', 'eyes', 'hat', 'traits', 'emotes'];
+        const drawingOrder = ['shoes', 'lower-body', 'upper-body', 'neck', 'eyes', 'hat', 'traits', 'emotes'];
         drawingOrder.forEach(categoryId => {
             const category = categories.find(category => category.id === categoryId);
             if (category && category.image) {
